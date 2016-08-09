@@ -5,8 +5,11 @@ function paraPrint($text) {
 
 function splitImgurUrl($url){
 	$path = parse_url($url, PHP_URL_PATH);
-	$pathArray = preg_split('+/+', $path);
+	return reverseImgurPath($path);
+}
 
+function reverseImgurPath($path){
+	$pathArray = preg_split('+/+', $path);
 	$filteredPathArray = array_filter($pathArray);
 	return array_reverse($filteredPathArray);
 }
